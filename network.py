@@ -1,6 +1,7 @@
 # Libraries
 import random
 import numpy as np
+import pickle
 
 
 class Network(object):
@@ -32,6 +33,7 @@ class Network(object):
                 print(f"Epoch {j}: {self.evaluate(test_data) / n_test * 100}%")
             else:
                 print(f"Epoch {j} complete")
+
     def update_mini_batch(self, mini_batch, eta):
         nabla_b = [np.zeros(b.shape) for b in self.biases]
         nabla_w = [np.zeros(w.shape) for w in self.weights]
@@ -74,11 +76,34 @@ class Network(object):
         return nabla_b, nabla_w
     
     def evaluate(self, test_data):
-        test_results = [(np.argmax(self.feedforward(x)), y)
+        test_results = [(self.predict(x), y)
                        for x, y in test_data]
         return sum(int(x == y) for x, y in test_results)
+    
+    def predict(self, x):
+        return np.argmax(self.feedforward(x))
+    
     def cost_derivative(self, output_activations, y):
         return (output_activations-y)
+    
+    def save(self, filename):
+        data = {
+            "sizes": self.sizes,    
+            "weights": self.weights,
+            "biases": self.biases
+        }
+
+        with open(filename, "wb") as f:
+            pickle.dump(data, f)
+            
+    @classmethod
+    def load(cls, filename):
+        with open(filename, "rb") as f:
+            data = pickle.load(f)
+        net = cls(data["sizes"])
+        net.weights = data["weights"]
+        net.biases = data["biases"]
+        return net
         
 
 # Miscellaneous functions
