@@ -161,7 +161,6 @@ function drawInputGrid(image) {
 }
 
 function paint(index) {
-  
   const x = index % 28;
   const y = Math.floor(index / 28);
 
@@ -184,7 +183,6 @@ function paint(index) {
   }
 
   draw();
-  
   /*
   customImage[index] = 1;
   draw();
