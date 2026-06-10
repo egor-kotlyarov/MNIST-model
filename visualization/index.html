@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MNIST Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div>
+        <h1>Neural Network Visualizer</h1>
+        <p id="architecture">Loading...</p>
+      </div>
+
+      <div class="prediction">
+        <span id="prediction">?</span>
+        <small>prediction</small>
+      </div>
+    </header>
+
+    <section id="network" class="network"></section>
+
+    <footer>
+      <button id="prev">← Previous</button>
+      <button id="drawMode">Draw mode</button>
+      <button id="clearCanvas">Clear</button>
+      <span id="info">0 / 0</span>
+      <button id="next">Next →</button>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

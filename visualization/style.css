@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #0f1117;
+  color: #f4f5f7;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  width: 90vw;
+  max-width: 1800px;
+  padding: 32px;
+  background: #181b23;
+  border-radius: 28px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+p {
+  margin: 8px 0 0;
+  color: #8f96a8;
+}
+
+.prediction {
+  width: 100px;
+  height: 100px;
+  background: #222735;
+  border-radius: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.prediction span {
+  font-size: 46px;
+  font-weight: 700;
+}
+
+.prediction small {
+  color: #8f96a8;
+}
+
+.network {
+  display: flex;
+  gap: 42px;
+  align-items: center;
+  justify-content: space-between;
+  overflow-x: auto;
+  min-height: 600px;
+  padding-bottom: 12px;
+}
+
+.layer {
+  min-width: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.layer-title {
+  margin-bottom: 18px;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(28, 12px);
+  grid-template-rows: repeat(28, 12px);
+  gap: 1px;
+  padding: 16px;
+  background: #11141b;
+  border-radius: 20px;
+  cursor: crosshair;
+  user-select: none;
+}
+
+.pixel {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  background: #202532;
+  transition: background 0.04s linear;
+}
+
+.neurons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.neuron {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #2a2f3d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.output-neuron {
+  display: grid;
+  grid-template-columns: 24px 24px 120px;
+  gap: 10px;
+  align-items: center;
+}
+
+.digit {
+  color: #d5d8e1;
+  font-weight: 700;
+}
+
+.track {
+  height: 12px;
+  background: #2a2f3d;
+  border-radius: 999px;
+  position: relative;
+}
+
+.fill {
+  height: 100%;
+  background: #7c9cff;
+  border-radius: 999px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.dots {
+  color: #6b7280;
+  font-size: 20px;
+}
+
+footer {
+  margin-top: 34px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+button {
+  border: none;
+  background: #242936;
+  color: #f4f5f7;
+  padding: 12px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+button:hover {
+  background: #303749;
+}
+
+#info {
+  color: #8f96a8;
+  min-width: 180px;
+  text-align: center;
+}

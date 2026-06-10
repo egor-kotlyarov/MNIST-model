@@ -2,6 +2,7 @@
 import random
 import numpy as np
 import pickle
+import json
 
 
 class Network(object):
@@ -95,7 +96,17 @@ class Network(object):
 
         with open(filename, "wb") as f:
             pickle.dump(data, f)
-            
+
+    def save_json(self, filename):
+        data = {
+            "sizes": self.sizes,
+            "weights": [w.tolist() for w in self.weights],
+            "biases": [b.tolist() for b in self.biases]
+        }
+
+        with open(filename, "w") as f:
+            json.dump(data, f)
+
     @classmethod
     def load(cls, filename):
         with open(filename, "rb") as f:
